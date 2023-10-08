@@ -1,17 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
 import PrimarySearchAppBar from './components/Appbar/AppBar';
-import BlogCardMain from './components/BlogCard';
 import { Box } from '@mui/material';
+import { AllBlogs } from './components/AllBlogs/AllBlogs';
 
 function App() {
   return (
     <div className="App">
       <PrimarySearchAppBar />
       <Box style={{ margin: '50px' }}>
-        <BlogCardMain />
+        <AllBlogs />
       </Box>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

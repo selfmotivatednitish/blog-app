@@ -7,7 +7,6 @@ import { addBlog } from "../../features/blogData/blogSlice";
 
 export const AddBlog = (props) => {
     const { setOpen } = props
-    const blogs = useSelector((state) => state.blogs.blogs);
     const dispatch = useDispatch();
 
     const [newData, setNewData] = useState({
@@ -16,10 +15,6 @@ export const AddBlog = (props) => {
         category: '',
         description: '',
     })
-
-    useEffect(() => {
-        console.log(blogs, 'blogs')
-    }, [blogs])
 
     const onBlogSave = () => {
         dispatch(addBlog(newData));

@@ -29,7 +29,8 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function BlogCardMain() {
+export default function BlogCardMain(props) {
+    const { blog } = props
     const [expanded, setExpanded] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -40,6 +41,10 @@ export default function BlogCardMain() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    React.useEffect(() => {
+        console.log("blog", blog)
+    }, [blog])
 
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
@@ -98,20 +103,17 @@ export default function BlogCardMain() {
                         <MoreVertIcon />
                     </IconButton>
                 }
-                title="Shrimp and Chorizo Paella"
+                title={blog.title}
                 subheader="September 14, 2016"
             />
-            <CardMedia
-                component="img"
-                height="194"
-                image="https://picsum.photos/200/300"
-                alt="Paella dish"
-            />
             <CardContent>
+                <Typography variant='body1' color="text.primary" >
+                    {blog.category}
+                </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    This impressive paella is a perfect party dish and a fun meal to cook
-                    together with your guests. Add 1 cup of frozen peas along with the mussels,
-                    if you like.
+                    {
+                        blog.description
+                    }
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
