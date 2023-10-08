@@ -2,11 +2,18 @@ import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
+import PrimarySearchAppBar from './components/Appbar/AppBar';
+import BlogCardMain from './components/BlogCard';
+import { Box } from '@mui/material';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <PrimarySearchAppBar />
+      <Box style={{ margin: '50px' }}>
+        <BlogCardMain />
+      </Box>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
@@ -50,7 +57,7 @@ function App() {
             React Redux
           </a>
         </span>
-      </header>
+      </header> */}
     </div>
   );
 }
